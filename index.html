@@ -14,6 +14,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
 
 
+<style type="text/css">
+
+   
+.card{
+    
+    height: 180px;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: -4px 18px 51px -19px rgba(0, 38, 0, 1);
+    
+}
+@media only screen and (max-width: 700px) {
+.card {
+    height: 300px;
+    width: 300px;
+    border-radius: 15px;
+}
+  }
+
+/* ref https://blog.logrocket.com/the-noobs-guide-to-3d-transforms-with-css-7370aafd9edf/ */
+
+.scene {    
+    perspective: 30em;
+  }
+
+</style>  
+  
+
 
 
 
@@ -57,7 +85,13 @@
             <h2 class="title">About me</h2>
             <div class="about-content">
                 <div class="column left">
-                    <img src="images/profile-1.jpeg" alt="">
+      <div class="scene">
+        <div class="card" id="card">
+            
+        </div>
+    </div>         
+                    
+                    
                 </div>
                 <div class="column right">
                     <div class="text">I'm Goutam Kumar and I'm a <span class="typing-2"></span></div>
@@ -111,10 +145,6 @@
 
 In addition to my expertise in HTML, I also have a strong understanding of JavaScript. My proficiency level in this language is around 70%, and I have used it to build interactive and dynamic elements on websites such as forms, slideshows, and games. I have also worked with various JavaScript libraries and frameworks, such as jQuery and React, to streamline the development process and build more complex features.
 
-Finally, I have a strong foundation in CSS, with a proficiency level of around 80%. I am skilled at using this language to style and layout web pages, and I have experience working with both traditional CSS and newer techniques such as CSS Grid and Flexbox. I have also worked with preprocessors such as SASS and LESS, which allow me to write more efficient and maintainable code.
-
-Overall, my skills and experiences in HTML, JavaScript, and CSS have allowed me to build a wide range of websites and web-based applications. Whether I am working on a simple landing page or a more complex web application, I have the skills and expertise to create high-quality and visually appealing web projects.
-
                     .</p>
                     <a href="#">Read more</a>
                 </div>
@@ -166,37 +196,37 @@ Overall, my skills and experiences in HTML, JavaScript, and CSS have allowed me 
             <div class="carousel owl-carousel">
                 <div class="card">
                     <div class="box">
-                        <img src="images/profile-1.jpeg" alt="">
-                        <div class="text">Someone name</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <img src="images/Subhash.png" alt="">
+                        <div class="text">Subhash</div>
+                        <p>YouTuber, Web Developer, Logo Designer, Graphics Designer and a Gamer.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="box">
-                        <img src="images/profile-2.jpeg" alt="">
-                        <div class="text">Someone name</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <img src="images/bikash.jpg" alt="">
+                        <div class="text">Bikash</div>
+                        <p>Gamer.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="box">
-                        <img src="images/profile-3.jpeg" alt="">
-                        <div class="text">Someone name</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <img src="images/sukuaa.jpg" alt="">
+                        <div class="text">Sukadev</div>
+                        <p>N00BDA Gamer, No skills available, Na layek .</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="box">
-                        <img src="images/profile-4.jpeg" alt="">
-                        <div class="text">Someone name</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <img src="images/ganesh.jpg" alt="">
+                        <div class="text">Ganesh</div>
+                        <p>Nothing .</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="box">
-                        <img src="images/profile-5.jpeg" alt="">
-                        <div class="text">Someone name</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <img src="images/sid.png" alt="">
+                        <div class="text">Suraj</div>
+                        <p>Gamer.</p>
                     </div>
                 </div>
             </div>
@@ -323,6 +353,50 @@ Overall, my skills and experiences in HTML, JavaScript, and CSS have allowed me 
     </footer>
 
     <script src="script.js"></script>
+    
+<script>
+/*  created by Henry Zhang
+    coded at 12/Jun/2019    */
+
+//artwork: trench by twenty one pilots
+var imgUrl = "./images/image.png"
+var card = document.getElementById("card");
+updateReflection(100,0)
+
+
+window.addEventListener("mousemove", (event)=>{
+    let mouseX = event.clientX
+    let mouseY = event.clientY
+    let halfWidth = window.innerWidth/350
+    let halfHeight = window.innerHeight/350
+    let xdeg = (mouseX - halfWidth)/halfWidth;
+    let ydeg = (mouseY - halfHeight)/halfHeight;
+    updateReflection(ydeg * 180, xdeg * 100)
+    card.style.transform = `rotateX(${ydeg * 10}deg) rotateY(${xdeg * 10}deg)`;
+})
+
+window.ondevicemotion = function(event) {
+	var accelerationX = event.accelerationIncludingGravity.x;
+	var accelerationY = event.accelerationIncludingGravity.y;
+    var accelerationZ = event.accelerationIncludingGravity.z;
+    // console.log(`${accelerationX},${accelerationY},${accelerationZ}`)
+    let xdeg = accelerationX/5;
+    let ydeg = accelerationY/5;
+    updateReflection(ydeg * 180, xdeg * 100)
+    card.style.transform = `rotateX(${ydeg * 25}deg) rotateY(${xdeg * 25}deg)`;
+}
+
+
+function updateReflection(degree,percentage){
+    card.style.background = `linear-gradient(${degree}deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0.5) ${percentage}%,rgba(255,255,255,0) 100%), url('${imgUrl}')`
+    card.style.backgroundSize = "cover"
+}
+
+
+</script>
+    
+    
+    
 
 <!-- GetButton.io widget -->
 <script type="text/javascript">
