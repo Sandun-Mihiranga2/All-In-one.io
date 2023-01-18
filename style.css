@@ -1,6 +1,14 @@
 /*  import google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
+body {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  user-select: none; /* Standard syntax */
+}
+
+
 *{
     margin: 0;
     padding: 0;
@@ -677,4 +685,29 @@ footer span a:hover{
         font-size: 23px;
         line-height: 38px;
     }
+}
+
+
+#progress {
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
+  height: 60px;
+  width: 60px;
+  display: none;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff4700;
+  cursor: pointer;
+}
+#progress-value {
+  display: block;
+  height: calc(100% - 15px);
+  width: calc(100% - 15px);
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 35px;
+  color: #001a2e;
 }
