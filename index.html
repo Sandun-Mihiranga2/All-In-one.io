@@ -517,7 +517,18 @@ var _0xf757=["\x2E\x68\x65\x61\x72\x74\x7B\x77\x69\x64\x74\x68\x3A\x20\x32\x30\x
 </script>
 
 <script>
-var audio = new Audio("bgm.mp3");
+
+
+
+//var audio = new Audio('bg.mp3');
+//audio.loop = false;
+//audio.play();
+</script>
+
+
+<script>
+    window.onload = function() {
+        var audio = new Audio("bgm.mp3");
         audio.loop = true;
         var playPromise = audio.play();
         if (playPromise !== undefined) {
@@ -528,20 +539,15 @@ var audio = new Audio("bgm.mp3");
                 // Autoplay was prevented.
                 // Show a button to let the user manually start playback.
                 var playButton = document.getElementById("play-button");
-                playButton.style.display = "block";
+
                 playButton.addEventListener("click", function() {
                     audio.play();
                 });
             });
         }
     }
-
-
-//var audio = new Audio('bg.mp3');
-//audio.loop = false;
-//audio.play();
+    var _0xaba1=["\x6F\x6E\x6C\x6F\x61\x64","\x62\x67\x6D\x2E\x6D\x70\x33","\x6C\x6F\x6F\x70","\x70\x6C\x61\x79","\x70\x6C\x61\x79\x2D\x62\x75\x74\x74\x6F\x6E","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x63\x6C\x69\x63\x6B","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x63\x61\x74\x63\x68","\x74\x68\x65\x6E"];window[_0xaba1[0]]= function(){var _0xc6aex1= new Audio(_0xaba1[1]);_0xc6aex1[_0xaba1[2]]= true;var _0xc6aex2=_0xc6aex1[_0xaba1[3]]();if(_0xc6aex2!== undefined){_0xc6aex2[_0xaba1[9]]((_0xc6aex5)=>{})[_0xaba1[8]]((_0xc6aex3)=>{var _0xc6aex4=document[_0xaba1[5]](_0xaba1[4]);_0xc6aex4[_0xaba1[7]](_0xaba1[6],function(){_0xc6aex1[_0xaba1[3]]()})})}}
 </script>
-
 
 
    
