@@ -52,37 +52,6 @@
 
 
 
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  z-index: 9999;
-}
-
-.loading-animation {
-  width: 50px;
-  height: 50px;
-  border: 5px solid #000;
-  border-top-color: #3498db;
-  border-radius: 50%;
-  animation: spin 1s ease-in-out infinite;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 
 </style>  
  
@@ -93,10 +62,7 @@
 </head>
 <body>
 
-   <div id="preloader">
-  <div class="loading-animation"></div>
-</div>
-
+   
       <div id="progress">
 
       <span id="progress-value">
@@ -577,14 +543,16 @@ var audio = new Audio("bgm.mp3");
 </script>
 
 
-<script>
-  window.onload = function() {
-  document.getElementById("preloader").style.display = "none";
 
-        
-}
+   <script>
+      document.body.addEventListener('mousedown', function(e) {
+  e.preventDefault();
+  alert("Text selection is disabled on this website");
+audio.play();
+});
 
-</script>
+      
+    </script>
 
 
 
