@@ -1,0 +1,5 @@
+http_basic_auth:
+  realm: "Restricted Area"
+  users:
+    - username: your_username
+      password: your_password
