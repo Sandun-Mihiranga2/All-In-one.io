@@ -1,3 +1,3 @@
-# CyberExpert0101.github.io
+# https://sandun-mihiranga2.github.io/All-In-one.io/
 
-https://github.com/CyberExpert0101/CyberExpert0101.github.io
+https://sandun-mihiranga2.github.io/All-In-one.io/
